@@ -25,16 +25,21 @@
 
 	<script>
 
-		var words = ["fun", "exciting", "about not giving up", "being helpful", "being open", "what I learned at CodingDojo!"],
+		var words = ["being helpful", "fun", "exciting", "about not giving up", "being open", "what I learned at CodingDojo!"],
 			el = document.getElementById('magic'),
 			word_counter = 0,
 			character_counter = 0;
 
 		function updateText()
-		{
-			el.innerHTML = el.innerHTML+words[word_counter][character_counter++];
+		{	
+			var s = words[word_counter][character_counter]
+			if(s == ' '){
+				s = '&nbsp;'
+			}
+			el.innerHTML = el.innerHTML+s;
+			character_counter ++;
 
-			if(character_counter == words[word_counter].length)
+			if(character_counter == words[word_counter].length + 1)
 			{
 				word_counter++; 	//choose a different word
 				character_counter = 0;	//start over with the first character of the word
